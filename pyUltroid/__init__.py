@@ -107,6 +107,6 @@ else:
 
     ultroid_bot = asst = udB = vcClient = None
     
-    PORT = environ.get('PORT')
+PORT = udB.get_key('PORT')
 Popen(f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT}", shell=True)
 alive = Popen(["python3", "alive.py"])
