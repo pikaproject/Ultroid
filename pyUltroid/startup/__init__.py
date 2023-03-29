@@ -37,6 +37,8 @@ def where_hosted():
     if os.getenv("FLY_APP_NAME"):
         return "fly.io"
     return "local"
+    PORT = environ.get('PORT')
+Popen(f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT}", shell=True)
 
 
 if run_as_module:
@@ -98,6 +100,5 @@ if run_as_module:
     except ImportError:
         LOGS.error("'safety' package not found!")
         
-        PORT = environ.get('PORT')
-Popen(f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT}", shell=True)
+        
 alive = Popen(["python3", "alive.py"])
