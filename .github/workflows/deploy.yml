@@ -18,7 +18,7 @@ jobs:
           REDIS_URI: ${{secrets.REDIS_URI}}
           REDIS_PASSWORD: ${{secrets.REDIS_PASSWORD}}
           usedocker: true
-          docker_heroku_process_type: web
+          docker_heroku_process_type: worker
           stack: "container"
           region: "eu"
         env:
